@@ -12,6 +12,7 @@ import domain.Cliente_Residenial;
 import domain.Llamada;
 import domain.Llamada_Internacional;
 import domain.Llamada_Interprovincial;
+import domain.Llamada_Local;
 import interfaces.ICentral;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,21 +105,43 @@ public class Etecsa implements ICentral {
     return valorTotalTeleSeleccion;
     }
 
+//    @Override
+//    public double pagoPorSuperarMetrado(Cliente cliente) {
+//        double acumulador = 0.0;
+//        List<Llamada> llamadasClienteEspecifico = cliente.getListaLlamada();
+//        for(Llamada llamada : llamadasClienteEspecifico){
+//            acumulador += llamada.getDuracionLlamda();
+//        }
+//            
+//        if(acumulador >= 300){
+//            acumulador -= 300;
+//            acumulador *= 0.05;
+//        }
+//        
+//        return acumulador;
+//  
+//    }
     @Override
-    public double pagoPorSuperarmetrado(Cliente cliente) {
-        double acumulador = 0.0;
-        List<Llamada> llamadasClienteEspecifico = cliente.getListaLlamada();
-        for(Llamada llamada : llamadasClienteEspecifico){
-            acumulador += llamada.getDuracionLlamda();
+    public double pagoPorSuperarMetrado() {
+        List<Llamada> llamadasLocales = new ArrayList<>();
+        for(Llamada llamadaLocal : llamadas){
+            if(llamadaLocal instanceof Llamada_Local){
+               llamadasLocales = ((List<Llamada>) llamadaLocal);
+            }
         }
+    
+        double sumador = 0.0;
+        for(Llamada llamadaLocal : llamadasLocales){
+            sumador+=llamadaLocal.getDuracionLlamda();
             
-        if(acumulador >= 300){
-            acumulador -= 300;
-            acumulador *= 0.05;
         }
         
-        return acumulador;
-  
+        if(sumador > 300){
+            sumador = Math.abs(sumador - 300);
+            sumador *= 0.05;
+        }
+        
+        return sumador;
     }
 
     

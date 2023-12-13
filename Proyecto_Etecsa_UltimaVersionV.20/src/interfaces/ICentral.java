@@ -22,5 +22,5 @@ public interface ICentral {
     public Cliente datosClienteMasUtilizaServicio();
     public List<Llamada> getLlamadasInternacionalesEInterprovinciales();
     public double cantidadMinutosHabladosTeleSeleccion(String nombre);
-    public double pagoPorSuperarmetrado(Cliente cliente);
+    public double pagoPorSuperarMetrado();
 }
