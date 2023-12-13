@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Llamada.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Llamada_Internacional.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Llamada_Interprovincial.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Llamada_Local.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Llamada_Matutina.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Cliente.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Cliente_Estatal.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/domain/Cliente_Residenial.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/interfaces/ICentral.java</file>
+            <file>file:/C:/Users/PC/Git%20Etecsa/Proyecto-Etecsa-Universidad/Proyecto_Etecsa_UltimaVersionV.20/src/central/Etecsa.java</file>
+        </group>
     </open-files>
 </project-private>

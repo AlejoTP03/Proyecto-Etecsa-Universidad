@@ -81,23 +81,21 @@ public class Etecsa implements ICentral {
         return clienteMasPago;
     }
 
-    @Override
-    public List<Llamada> getLlamadasInternacionalesEInterprovinciales() {
-        List<Llamada> listaLlamadaTeleSeleccion = new ArrayList<>();
-        for(Llamada llamada : llamadas){
-            if(llamada instanceof Llamada_Internacional || llamada instanceof Llamada_Interprovincial)
-                listaLlamadaTeleSeleccion = ((List<Llamada>) llamada);
-            
-            
-        }
-      return listaLlamadaTeleSeleccion; 
-    }
+
 
     @Override
     public double cantidadMinutosHabladosTeleSeleccion(String nombre) {
         double valorTotalTeleSeleccion = 0.0;
-        List<Llamada> lista = getLlamadasInternacionalesEInterprovinciales();
-        for(Llamada llamada : lista){
+//        List<Llamada> lista = getLlamadasInternacionalesEInterprovinciales();
+        
+        List<Llamada> listaLlamadaTeleSeleccion = new ArrayList<>();
+        for(Llamada llamada : llamadas){
+            if(llamada instanceof Llamada_Internacional || llamada instanceof Llamada_Interprovincial)
+                listaLlamadaTeleSeleccion = ((List<Llamada>) llamada);
+    
+        }
+        
+        for(Llamada llamada : listaLlamadaTeleSeleccion){
             if(llamada.getCliente().getNombre().equals(nombre));
             valorTotalTeleSeleccion += llamada.precioLlamada();
         }
@@ -105,22 +103,8 @@ public class Etecsa implements ICentral {
     return valorTotalTeleSeleccion;
     }
 
-//    @Override
-//    public double pagoPorSuperarMetrado(Cliente cliente) {
-//        double acumulador = 0.0;
-//        List<Llamada> llamadasClienteEspecifico = cliente.getListaLlamada();
-//        for(Llamada llamada : llamadasClienteEspecifico){
-//            acumulador += llamada.getDuracionLlamda();
-//        }
-//            
-//        if(acumulador >= 300){
-//            acumulador -= 300;
-//            acumulador *= 0.05;
-//        }
-//        
-//        return acumulador;
-//  
-//    }
+
+    
     @Override
     public double pagoPorSuperarMetrado() {
         List<Llamada> llamadasLocales = new ArrayList<>();
