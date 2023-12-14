@@ -127,8 +127,8 @@ public class Etecsa implements ICentral {
     @Override
     public double pagoPorSuperarMetrado() {
         List<Llamada> llamadasLocales = getLlamadasLocales();
-    
         double valorMetrado = 0.0;
+        
         for(Llamada llamadaLocal : llamadasLocales){
             valorMetrado+=llamadaLocal.getDuracionLlamda();
             
