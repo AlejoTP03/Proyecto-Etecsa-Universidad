@@ -27,6 +27,7 @@ public class Etecsa implements ICentral {
     private List<Cliente> clientes = new ArrayList<>();
     private List<Llamada> llamadas = new ArrayList<>();
     
+    
         
     
     @Override
@@ -81,21 +82,26 @@ public class Etecsa implements ICentral {
         return clienteMasPago;
     }
 
-
-
+    
+    
     @Override
-    public double cantidadMinutosHabladosTeleSeleccion(String nombre) {
-        double valorTotalTeleSeleccion = 0.0;
-//        List<Llamada> lista = getLlamadasInternacionalesEInterprovinciales();
-        
+    public List<Llamada> getLlamadasInternacionalesEInterprovinciales() {
         List<Llamada> listaLlamadaTeleSeleccion = new ArrayList<>();
         for(Llamada llamada : llamadas){
             if(llamada instanceof Llamada_Internacional || llamada instanceof Llamada_Interprovincial)
                 listaLlamadaTeleSeleccion = ((List<Llamada>) llamada);
-    
-        }
         
-        for(Llamada llamada : listaLlamadaTeleSeleccion){
+        }
+      return listaLlamadaTeleSeleccion;
+    }
+
+
+    
+    @Override
+    public double cantidadMinutosHabladosTeleSeleccion(String nombre) {
+           double valorTotalTeleSeleccion = 0.0;
+        List<Llamada> lista = getLlamadasInternacionalesEInterprovinciales();
+        for(Llamada llamada : lista){
             if(llamada.getCliente().getNombre().equals(nombre));
             valorTotalTeleSeleccion += llamada.precioLlamada();
         }
@@ -103,29 +109,37 @@ public class Etecsa implements ICentral {
     return valorTotalTeleSeleccion;
     }
 
-
-    
     @Override
-    public double pagoPorSuperarMetrado() {
+    public List<Llamada> getLlamadasLocales() {
         List<Llamada> llamadasLocales = new ArrayList<>();
         for(Llamada llamadaLocal : llamadas){
             if(llamadaLocal instanceof Llamada_Local){
-               llamadasLocales = ((List<Llamada>) llamadaLocal);
+               llamadasLocales.add(llamadaLocal);
             }
         }
+    return llamadasLocales;
+    }
+
+
     
-        double sumador = 0.0;
+    
+    
+    @Override
+    public double pagoPorSuperarMetrado() {
+        List<Llamada> llamadasLocales = getLlamadasLocales();
+    
+        double valorMetrado = 0.0;
         for(Llamada llamadaLocal : llamadasLocales){
-            sumador+=llamadaLocal.getDuracionLlamda();
+            valorMetrado+=llamadaLocal.getDuracionLlamda();
             
         }
         
-        if(sumador > 300){
-            sumador = Math.abs(sumador - 300);
-            sumador *= 0.05;
+        if(valorMetrado > 300){
+            valorMetrado = Math.abs(valorMetrado - 300);
+            valorMetrado *= 0.05;
         }
         
-        return sumador;
+        return valorMetrado;
     }
 
     
