@@ -22,8 +22,27 @@ import java.util.List;
  */
 public class Etecsa implements ICentral {
 
-    private List<Cliente> clientes = new ArrayList<>();
+    private List<Cliente> clientes;
     private List<Llamada> llamadas = new ArrayList<>();
+
+    public List<Cliente> getClientes() {
+        clientes = new ArrayList<>();
+        for(Cliente c: clientes)
+            clientes.add(c);
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+    public List<Llamada> getLlamadas() {
+        return llamadas;
+    }
+
+    public void setLlamadas(List<Llamada> llamadas) {
+        this.llamadas = llamadas;
+    }
     
     
         

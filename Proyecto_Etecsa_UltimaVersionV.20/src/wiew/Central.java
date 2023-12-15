@@ -7,6 +7,7 @@
 package wiew;
 
 import central.Etecsa;
+import domain.Cliente;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -28,7 +29,18 @@ public class Central extends javax.swing.JFrame {
         modelo.addColumn("Servicios / Linea");
         modelo.addColumn("Costo de Teleseleccion");
         modelo.addColumn("Monto total a pagar");
-        Tabla.setModel(modelo);
+        Tabla.getModel();
+        
+        
+        Cliente c ;
+        
+        Etecsa etec = new Etecsa();
+        for(int i = 0;i< etec.getClientes().size();i++)
+        {   
+            modelo.addColumn(etec.getClientes());
+            modelo.setValueAt(etec.getClientes().get(i), i, 0);
+        }
+            
     }
     
    

@@ -25,16 +25,16 @@ public class Llamadas extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         opInterprov.setSelected(true);
     }
-    
      boolean addDatos;
       int longitudInterp=10;
       int longitudInternac=12; 
       int longitudLocal=8;
-      boolean estadoContrato=false;
+
       
       
       
       public void invalidarLlamadasContratoInvalido(){
+         boolean estadoContrato=true;
          if (estadoContrato==false){
               JOptionPane.showMessageDialog(rootPane, "Su contrato está cancelado temporalmente. Usted no puede realizar llamadas", "Error", JOptionPane.ERROR_MESSAGE);
               this.setVisible(false);
@@ -166,17 +166,17 @@ public class Llamadas extends javax.swing.JDialog {
        
        public boolean obtenerFechaHora(){
             Date fechaActual = new Date ();
-            if (obtenerDatos()==true){
             Date fechaUsuario = (Date) fecha.getModel().getValue();
             if(fechaUsuario.after(fechaActual)==true){
              JOptionPane.showMessageDialog(this, "Usted ha establecido una fecha que excede a la fecha actual");
               addDatos=false;
      }else{
                addDatos=true;
-            }
             } 
             return addDatos;
      } 
+     
+
                   
        public boolean revisionFinalLongitudnumOrigenInterprov(){
        if (numOrigenInterprov.getText().length()<longitudInterp){
@@ -360,65 +360,71 @@ public class Llamadas extends javax.swing.JDialog {
           return addDatos;
          } 
          
+     
+      
                
-               
-        public boolean obtenerDatos(){
-            if(opInterprov.isSelected()){
-                   if ((habilitacionNoAgregarCamposVaciosInterprov()==true )
+        public int obtenerDatos(){ 
+           String addDuracion;
+           String addnumOrigen;
+           String addnumDestino;
+           String addFecha;
+           String addTarifa;
+                   
+                   if(opInterprov.isSelected()){
+                       if ((habilitacionNoAgregarCamposVaciosInterprov()==true )
        &&(revisionFinalLongitudnumDestinoInterprov()==true)
        &&(revisionFinalLongitudnumOrigenInterprov()==true)
+       &&(obtenerFechaHora()==true)                        
        &&(revisionFinalnumOrigenInterprov()==true)
-       &&(revisionFinalnumDestinoInterprov()==true)
-       &&(revisionFinalTarifa()==true)){
-           String addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
-           String addnumOrigen=numOrigenInterprov.getText();
-           String addnumDestino=numDestinoInterprov.getText();
-           String addFecha= (String) fecha.getModel().getValue();
+       &&(revisionFinalnumDestinoInterprov()==true)){
+           addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
+           addnumOrigen=numOrigenInterprov.getText();
+           addnumDestino=numDestinoInterprov.getText();
+           addFecha= (String) fecha.getModel().getValue();
             avisoAgregar.setText("");
-            addDatos=true;
-                      }else{
-            avisoAgregar.setText("Puede que usted no haya introducido algunos datos de la manera correcta");
-            addDatos=false;    
-             }
-         }else if (opInternac.isSelected()){
+            JOptionPane.showMessageDialog(this, "Seha agregado la llamada nacional interprovincial");  
+                
+      }
+           
+               
+               
+               }else if (opInternac.isSelected()){
                   if ((habilitacionNoAgregarCamposVaciosInternac()==true )
        &&(revisionFinalLongitudnumDestinoInternac()==true)
+       &&(revisionFinalLongitudnumOrigenInterprov()==true)
        &&(revisionFinalLongitudnumOrigenInternac()==true)
        &&(revisionFinalnumOrigenInternac()==true)
        &&(revisionFinalnumDestinoInternac()==true)
        &&(revisionFinalTarifa()==true)){
-           String addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
-           String addnumOrigen=numOrigenInternac.getText();
-           String addnumDestino=numDestinoInternac.getText();
-           String addTarifa=tarifa.getText();
-           String addFecha= (String) fecha.getModel().getValue();
+           addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
+           addnumOrigen=numOrigenInternac.getText();
+           addnumDestino=numDestinoInternac.getText();
+           addTarifa=tarifa.getText();
+           addFecha= (String) fecha.getModel().getValue();
             avisoAgregar.setText("");
-            addDatos=true;
-          }else{
-            avisoAgregar.setText("Puede que usted no haya introducido algunos datos de la manera correcta");
-            addDatos=false;    
-           }
-       }else{
-               if ((habilitacionNoAgregarCamposVaciosLocal()==true )
+            JOptionPane.showMessageDialog(this, "Seha agregado la llamada internacional");  
+            
+      }
+               
+               }else{
+               if ((habilitacionNoAgregarCamposVaciosLocal()==true)
        &&(revisionFinalLongitudnumDestinoLocal()==true)
+       &&(revisionFinalLongitudnumOrigenInterprov()==true)
        &&(revisionFinalLongitudnumOrigenLocal()==true)
        &&(revisionFinalnumOrigenLocal()==true)
-       &&(revisionFinalnumDestinoLocal()==true)
-       &&(revisionFinalTarifa()==true)){
-           String addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
-           String addnumOrigen=numOrigenLocal.getText();
-           String addnumDestino=numDestinoLocal.getText();
+       &&(revisionFinalnumDestinoLocal()==true)){
+           addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
+           addnumOrigen=numOrigenLocal.getText();
+           addnumDestino=numDestinoLocal.getText();
+           addFecha= (String) fecha.getModel().getValue();
             avisoAgregar.setText("");
-            addDatos=true;
-            String addFecha= (String) fecha.getModel().getValue();
-       }else{
-            avisoAgregar.setText("Puede que usted no haya introducido algunos datos de la manera correcta");
-            addDatos=false;    
-       }
-    }
-            return addDatos;
-    }          
-
+            JOptionPane.showMessageDialog(this,"Seha agregado la llamada nacional"); 
+      }    
+    }   
+                   return 0;
+    }     
+        
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -976,26 +982,30 @@ public class Llamadas extends javax.swing.JDialog {
 
     private void agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarMouseClicked
         invalidarLlamadasContratoInvalido();
-        if (opInterprov.isSelected()){
-          revisionFinalLongitudnumOrigenInterprov();
-          revisionFinalLongitudnumDestinoInterprov();
-          revisionFinalnumOrigenInterprov();
-          revisionFinalnumDestinoInterprov();
-        }else if(opInternac.isSelected()){
-          revisionFinalLongitudnumOrigenInternac();
-          revisionFinalLongitudnumDestinoInternac();
-          revisionFinalnumOrigenInternac();
-          revisionFinalnumDestinoInternac();
-        }else{
-           revisionFinalLongitudnumOrigenLocal();
-           revisionFinalLongitudnumDestinoLocal();
-           revisionFinalnumOrigenLocal();
-           revisionFinalnumDestinoLocal();
-        }
-        obtenerDatos();
-        if(obtenerFechaHora()==true){
-            setVisible(false);
-        }
+        obtenerFechaHora();
+         if(opInterprov.isSelected()){
+       habilitacionNoAgregarCamposVaciosInterprov();
+       revisionFinalLongitudnumDestinoInterprov();
+       revisionFinalLongitudnumOrigenInterprov();
+       obtenerFechaHora();                        
+       revisionFinalnumOrigenInterprov();
+       revisionFinalnumDestinoInterprov();
+         }else if(opInternac.isSelected()){
+             habilitacionNoAgregarCamposVaciosInternac();
+       revisionFinalLongitudnumDestinoInternac();
+       revisionFinalLongitudnumOrigenInternac();
+       obtenerFechaHora();                        
+       revisionFinalnumOrigenInternac();
+       revisionFinalnumDestinoInternac();
+         }else if(opLocal.isSelected()){
+             habilitacionNoAgregarCamposVaciosLocal();
+       revisionFinalLongitudnumDestinoLocal();
+       revisionFinalLongitudnumOrigenLocal();
+       obtenerFechaHora();                        
+       revisionFinalnumOrigenLocal();
+       revisionFinalnumDestinoLocal();
+         }
+         obtenerDatos();
     }//GEN-LAST:event_agregarMouseClicked
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed

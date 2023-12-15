@@ -7,6 +7,8 @@
 package wiew;
 
 
+import central.Etecsa;
+import domain.Cliente;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,7 +25,6 @@ public class Clientes extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         opResidencial.setSelected(true);
-        opArrendada.setSelected(true);
     }
     
         
@@ -215,6 +216,10 @@ public class Clientes extends javax.swing.JDialog {
     
     
     public void obtenerDatos(){
+      boolean arrendada;
+      boolean rastreo;
+      boolean matutino; 
+    
        if ((habilitacionNoAgregarCamposVacios()==true )
        &&(revisionFinalTelefono()==true)
        &&(revisionFinalCarnet()==true)
@@ -222,12 +227,30 @@ public class Clientes extends javax.swing.JDialog {
        &&(revisionFinalDireccion()==true)
        &&(revisionFinalLongitudTelefono()==true)
        &&(revisionFinalLongitudCarnet()==true)){
+          if(opEstatal.isSelected()){ 
            String addNombre=nombre.getText();
            String addCarnet=carnet.getText();
            String addTelefono=telefono.getText();
            String addDireccion=direccion.getText();
-           this.setVisible(false);
-            { 
+           if(opArrendada.isSelected()){
+               arrendada=true;
+           }else{
+               arrendada=false;
+           }
+           JOptionPane.showMessageDialog(this, "Seha agregado el cliente estatal");
+          }else{
+           String addNombre=nombre.getText();
+           String addCarnet=carnet.getText();
+           String addTelefono=telefono.getText();
+           String addDireccion=direccion.getText();
+           if(opRastreo.isSelected()){
+               rastreo=true;
+               matutino=false;
+           }else{
+               arrendada=false;
+               rastreo=false;
+           }
+            JOptionPane.showMessageDialog(this, "Seha agregado el cliente residencial");
        }
      }
     }
@@ -668,7 +691,7 @@ public class Clientes extends javax.swing.JDialog {
     }//GEN-LAST:event_agregarMouseClicked
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-
+       
     }//GEN-LAST:event_agregarActionPerformed
 
     /**
