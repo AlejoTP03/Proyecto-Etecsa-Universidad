@@ -6,7 +6,7 @@
 
 package wiew;
 
-import java.awt.event.ActionEvent;
+
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -30,8 +30,16 @@ public class Llamadas extends javax.swing.JDialog {
       int longitudInterp=10;
       int longitudInternac=12; 
       int longitudLocal=8;
+      boolean estadoContrato=false;
       
       
+      
+      public void invalidarLlamadasContratoInvalido(){
+         if (estadoContrato==false){
+              JOptionPane.showMessageDialog(rootPane, "Su contrato está cancelado temporalmente. Usted no puede realizar llamadas", "Error", JOptionPane.ERROR_MESSAGE);
+              this.setVisible(false);
+         }
+      }
       
          public void validacionTelefonoTarifa(java.awt.event.KeyEvent evento){
          if       ((Character.isDigit(evento.getKeyChar())==false)                                         //Números
@@ -362,7 +370,7 @@ public class Llamadas extends javax.swing.JDialog {
        &&(revisionFinalnumOrigenInterprov()==true)
        &&(revisionFinalnumDestinoInterprov()==true)
        &&(revisionFinalTarifa()==true)){
-           String addDuracion=horaDuracion.getSelectedItem().toString()+ ":" + minDuracion.getSelectedItem().toString();
+           String addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
            String addnumOrigen=numOrigenInterprov.getText();
            String addnumDestino=numDestinoInterprov.getText();
            String addFecha= (String) fecha.getModel().getValue();
@@ -379,7 +387,7 @@ public class Llamadas extends javax.swing.JDialog {
        &&(revisionFinalnumOrigenInternac()==true)
        &&(revisionFinalnumDestinoInternac()==true)
        &&(revisionFinalTarifa()==true)){
-           String addDuracion=horaDuracion.getSelectedItem().toString()+ ":" + minDuracion.getSelectedItem().toString();
+           String addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
            String addnumOrigen=numOrigenInternac.getText();
            String addnumDestino=numDestinoInternac.getText();
            String addTarifa=tarifa.getText();
@@ -397,7 +405,7 @@ public class Llamadas extends javax.swing.JDialog {
        &&(revisionFinalnumOrigenLocal()==true)
        &&(revisionFinalnumDestinoLocal()==true)
        &&(revisionFinalTarifa()==true)){
-           String addDuracion=horaDuracion.getSelectedItem().toString()+ ":" + minDuracion.getSelectedItem().toString();
+           String addDuracion=minDuracion.getSelectedItem().toString()+ ":" + segDuracion.getSelectedItem().toString();
            String addnumOrigen=numOrigenLocal.getText();
            String addnumDestino=numDestinoLocal.getText();
             avisoAgregar.setText("");
@@ -453,11 +461,11 @@ public class Llamadas extends javax.swing.JDialog {
         agregar = new javax.swing.JButton();
         avisoAgregar = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        horaDuracion = new javax.swing.JComboBox();
+        minDuracion = new javax.swing.JComboBox();
         fecha = new javax.swing.JSpinner();
         jLabel22 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        minDuracion = new javax.swing.JComboBox();
+        segDuracion = new javax.swing.JComboBox();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
 
@@ -815,10 +823,10 @@ public class Llamadas extends javax.swing.JDialog {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText(":");
 
-        horaDuracion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", " " }));
-        horaDuracion.addActionListener(new java.awt.event.ActionListener() {
+        minDuracion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        minDuracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horaDuracionActionPerformed(evt);
+                minDuracionActionPerformed(evt);
             }
         });
 
@@ -835,15 +843,15 @@ public class Llamadas extends javax.swing.JDialog {
         jLabel10.setText("Duración de llamada:");
         jLabel10.setPreferredSize(new java.awt.Dimension(150, 15));
 
-        minDuracion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", " ", " " }));
-        minDuracion.addActionListener(new java.awt.event.ActionListener() {
+        segDuracion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", " ", " " }));
+        segDuracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minDuracionActionPerformed(evt);
+                segDuracionActionPerformed(evt);
             }
         });
 
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("H");
+        jLabel18.setText("S");
 
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("M");
@@ -872,27 +880,29 @@ public class Llamadas extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(182, 182, 182)
-                                        .addComponent(jLabel18)
-                                        .addGap(71, 71, 71)
-                                        .addComponent(jLabel19))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(80, 80, 80))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(horaDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(minDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(80, 80, 80))))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(minDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(segDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(38, 38, 38)
+                                                .addComponent(jLabel19)
+                                                .addGap(73, 73, 73)
+                                                .addComponent(jLabel18))))))
                             .addComponent(tabbed, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -913,14 +923,14 @@ public class Llamadas extends javax.swing.JDialog {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(horaDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(minDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(segDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(avisoAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -965,6 +975,7 @@ public class Llamadas extends javax.swing.JDialog {
     }//GEN-LAST:event_opLocalActionPerformed
 
     private void agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarMouseClicked
+        invalidarLlamadasContratoInvalido();
         if (opInterprov.isSelected()){
           revisionFinalLongitudnumOrigenInterprov();
           revisionFinalLongitudnumDestinoInterprov();
@@ -991,13 +1002,13 @@ public class Llamadas extends javax.swing.JDialog {
 
     }//GEN-LAST:event_agregarActionPerformed
 
-    private void horaDuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaDuracionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_horaDuracionActionPerformed
-
     private void minDuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minDuracionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_minDuracionActionPerformed
+
+    private void segDuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_segDuracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_segDuracionActionPerformed
 
     private void tarifaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tarifaKeyTyped
         validacionTelefonoTarifa(evt);
@@ -1147,7 +1158,6 @@ public class Llamadas extends javax.swing.JDialog {
     private javax.swing.JLabel avisoNumOrigenLocal;
     private javax.swing.JLabel avisoTarifa;
     private javax.swing.JSpinner fecha;
-    private javax.swing.JComboBox horaDuracion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -1172,6 +1182,7 @@ public class Llamadas extends javax.swing.JDialog {
     private javax.swing.JRadioButton opInterprov;
     private javax.swing.JRadioButton opLocal;
     private javax.swing.ButtonGroup opsTipoLlamada;
+    private javax.swing.JComboBox segDuracion;
     private javax.swing.JTabbedPane tabbed;
     private javax.swing.JFormattedTextField tarifa;
     // End of variables declaration//GEN-END:variables

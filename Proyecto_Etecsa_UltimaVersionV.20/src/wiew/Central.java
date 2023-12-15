@@ -5,6 +5,8 @@
  */
 
 package wiew;
+
+import central.Etecsa;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -17,6 +19,10 @@ public class Central extends javax.swing.JFrame {
     public Central() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+       
+    
+    public void mostrarArrayListClientesTabla(){
         modelo.addColumn("Clientes");
         modelo.addColumn("Tipo de cliente");
         modelo.addColumn("Servicios / Linea");
@@ -24,7 +30,6 @@ public class Central extends javax.swing.JFrame {
         modelo.addColumn("Monto total a pagar");
         Tabla.setModel(modelo);
     }
-       
     
    
     
