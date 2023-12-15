@@ -20,11 +20,12 @@ public class Cliente_Residenial extends Cliente{
     private boolean servicioMatutino;
     
     //Constructor
-    public Cliente_Residenial(boolean rastreoLlamada, boolean servicioMatutino, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato) {
-        super(nombre, numeroCarnet, direccion, numeroAsignado, estadoContrato);
+    public Cliente_Residenial(boolean rastreoLlamada, boolean servicioMatutino, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato, List<Llamada> listaLlamada) {
+        super(nombre, numeroCarnet, direccion, numeroAsignado, estadoContrato, listaLlamada);
         this.rastreoLlamada = rastreoLlamada;
         this.servicioMatutino = servicioMatutino;
     }
+    
 
             
     //Getter and Setter
