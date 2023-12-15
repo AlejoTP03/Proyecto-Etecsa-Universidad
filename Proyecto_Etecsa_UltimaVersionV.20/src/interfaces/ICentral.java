@@ -20,7 +20,8 @@ public interface ICentral {
     public boolean addCliente(Cliente cliente);
     public List<Llamada> listaLlamadasCliente(Cliente cliente, Cliente_Residenial clienteResidencial);
     public Cliente datosClienteMasUtilizaServicio();
-    public List<Llamada> getLlamadasInternacionalesEInterprovinciales();
     public double cantidadMinutosHabladosTeleSeleccion(String nombre);
     public double pagoPorSuperarMetrado();
+    public List<Llamada> getLlamadasInternacionalesEInterprovinciales();
+    public List<Llamada> getLlamadasLocales();
 }

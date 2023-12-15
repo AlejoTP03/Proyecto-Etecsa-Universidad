@@ -7,6 +7,7 @@
 package domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -20,12 +21,12 @@ public abstract class Llamada {
     protected String numeroLlamante;
     protected String numeroLlamado;
     protected Date fecha;
-    protected String hora;
+    protected int hora;
     protected Cliente cliente;
     
 
     //Constructor
-    public Llamada(String numeroLlamante, String numeroLlamado, Date fecha, Cliente cliente) {
+    public Llamada(String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
         this.numeroLlamante = numeroLlamante;
         this.numeroLlamado = numeroLlamado;
         this.fecha = fecha;
@@ -37,9 +38,7 @@ public abstract class Llamada {
         
     //Formato numero telefonico
     String[] numeroLlamanteSeparado = numeroLlamante.split("-");
-    String[] numeroLlamadoSeparado = numeroLlamado.split("-");
-    String[] horaSeparada = hora.split(":");
-    
+    String[] numeroLlamadoSeparado = numeroLlamado.split("-"); 
     
     //Getter and Setter
     public long getDuracionLlamda() {
@@ -74,11 +73,11 @@ public abstract class Llamada {
         this.fecha = fecha;
     }
 
-    public String getHora() {
+    public int getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(int hora) {
         this.hora = hora;
     }
 

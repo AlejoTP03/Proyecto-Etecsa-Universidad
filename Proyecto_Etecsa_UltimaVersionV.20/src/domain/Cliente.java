@@ -24,7 +24,7 @@ public abstract class Cliente {
     protected List<Llamada> listaLlamada = new ArrayList<>();
     
     //Formato numero telefonico
-    String[] numeroAsignadoSeparado = numeroAsignado.split("-");
+//    String[] numeroAsignadoSeparado = numeroAsignado.split("-");
 
 
     //Contructor

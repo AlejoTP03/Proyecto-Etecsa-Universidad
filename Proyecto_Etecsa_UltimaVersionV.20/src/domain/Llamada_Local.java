@@ -16,8 +16,8 @@ import java.util.Date;
  */
 public class Llamada_Local extends Llamada{
 
-    public Llamada_Local(String numeroLlamante, String numeroLlamado, Date fecha, Cliente cliente) {
-        super(numeroLlamante, numeroLlamado, fecha, cliente);
+    public Llamada_Local(String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+        super(numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
 
         
