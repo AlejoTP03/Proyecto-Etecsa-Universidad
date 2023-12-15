@@ -18,8 +18,8 @@ import java.util.Date;
  */
 public class Llamada_Interprovincial extends Llamada {
 
-    public Llamada_Interprovincial(String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        super(numeroLlamante, numeroLlamado, fecha, hora, cliente);
+    public Llamada_Interprovincial(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+        super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
 
     
@@ -32,7 +32,7 @@ public class Llamada_Interprovincial extends Llamada {
         
         valorllamada = Math.abs(a-b);
         
-     return super.getDuracionLlamda() * valorllamada;   
+     return super.getDuracion() * valorllamada;   
     }
  
     

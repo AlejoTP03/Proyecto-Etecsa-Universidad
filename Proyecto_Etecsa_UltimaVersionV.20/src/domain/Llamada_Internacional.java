@@ -18,8 +18,8 @@ public class Llamada_Internacional extends Llamada{
     private double tarifaPais;
     
     //Constructor
-    public Llamada_Internacional(double tarifaPais, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        super(numeroLlamante, numeroLlamado, fecha, hora, cliente);
+    public Llamada_Internacional(double tarifaPais, String numeroLlamante, long duracion, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+        super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
         this.tarifaPais = tarifaPais;
     }
     
@@ -37,9 +37,9 @@ public class Llamada_Internacional extends Llamada{
     @Override
     public double precioLlamada() {
         if(super.hora > 2300 && super.hora < 0500){
-            return duracionLlamda * tarifaPais;
+            return duracion * tarifaPais;
         }else
-            return duracionLlamda * (tarifaPais + 0.50);
+            return duracion * (tarifaPais + 0.50);
     }
     
     

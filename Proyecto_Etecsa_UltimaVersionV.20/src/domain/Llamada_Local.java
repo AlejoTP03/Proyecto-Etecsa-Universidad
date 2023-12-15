@@ -16,8 +16,8 @@ import java.util.Date;
  */
 public class Llamada_Local extends Llamada{
 
-    public Llamada_Local(String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        super(numeroLlamante, numeroLlamado, fecha, hora, cliente);
+    public Llamada_Local(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+        super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
 
         
@@ -29,7 +29,7 @@ public class Llamada_Local extends Llamada{
         }else
             valorLlamada = 0.05 / 3;
         
-        return duracionLlamda * valorLlamada;
+        return duracion * valorLlamada;
     }
     
     

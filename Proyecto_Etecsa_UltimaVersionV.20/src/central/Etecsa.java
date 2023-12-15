@@ -16,7 +16,6 @@ import domain.Llamada_Local;
 import interfaces.ICentral;
 import java.util.ArrayList;
 import java.util.List;
-import view.LlamadaInternacional;
 
 /**
  *
@@ -123,14 +122,13 @@ public class Etecsa implements ICentral {
 
     
     
-    
     @Override
     public double pagoPorSuperarMetrado() {
         List<Llamada> llamadasLocales = getLlamadasLocales();
         double valorMetrado = 0.0;
         
         for(Llamada llamadaLocal : llamadasLocales){
-            valorMetrado+=llamadaLocal.getDuracionLlamda();
+            valorMetrado+=llamadaLocal.getDuracion();
             
         }
         

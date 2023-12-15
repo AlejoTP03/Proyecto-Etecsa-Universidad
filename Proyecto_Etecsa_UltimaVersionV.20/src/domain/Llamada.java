@@ -17,7 +17,7 @@ import java.util.Date;
  * @author PC
  */
 public abstract class Llamada {
-    protected long duracionLlamda;
+    protected long duracion;
     protected String numeroLlamante;
     protected String numeroLlamado;
     protected Date fecha;
@@ -26,11 +26,11 @@ public abstract class Llamada {
     
 
     //Constructor
-    public Llamada(String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+    public Llamada(long duracion,String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+        this.duracion = duracion;
         this.numeroLlamante = numeroLlamante;
         this.numeroLlamado = numeroLlamado;
         this.fecha = fecha;
-        duracionLlamda = Math.abs((new Date()).getTime() - fecha.getTime()) / 60000; 
         this.hora = hora;
         this.cliente = cliente;
     }
@@ -41,12 +41,12 @@ public abstract class Llamada {
     String[] numeroLlamadoSeparado = numeroLlamado.split("-"); 
     
     //Getter and Setter
-    public long getDuracionLlamda() {
-        return duracionLlamda;
+    public long getDuracion() {
+        return duracion;
     }
 
-    public void setDuracionLlamda(long duracionLlamda) {
-        this.duracionLlamda = duracionLlamda;
+    public void setDuracion(long duracion) {
+        this.duracion = duracion;
     }
 
     public String getNumeroLlamante() {
