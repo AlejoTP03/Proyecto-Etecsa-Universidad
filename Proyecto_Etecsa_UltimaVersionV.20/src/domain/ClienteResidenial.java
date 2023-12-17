@@ -14,13 +14,13 @@ import java.util.List;
  *
  * @author PC
  */
-public class Cliente_Residenial extends Cliente{
+public class ClienteResidenial extends Cliente{
     
     private boolean rastreoLlamada;
     private boolean servicioMatutino;
     
     //Constructor
-    public Cliente_Residenial(boolean rastreoLlamada, boolean servicioMatutino, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato, List<Llamada> listaLlamada) {
+    public ClienteResidenial(boolean rastreoLlamada, boolean servicioMatutino, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato, List<Llamada> listaLlamada) {
         super(nombre, numeroCarnet, direccion, numeroAsignado, estadoContrato, listaLlamada);
         this.rastreoLlamada = rastreoLlamada;
         this.servicioMatutino = servicioMatutino;

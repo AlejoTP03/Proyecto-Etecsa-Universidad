@@ -14,11 +14,11 @@ import java.util.Date;
  *
  * @author PC
  */
-public class Llamada_Internacional extends Llamada{
+public class LlamadaInternacional extends Llamada{
     private double tarifaPais;
     
     //Constructor
-    public Llamada_Internacional(double tarifaPais, String numeroLlamante, long duracion, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+    public LlamadaInternacional(double tarifaPais, String numeroLlamante, long duracion, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
         super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
         this.tarifaPais = tarifaPais;
     }

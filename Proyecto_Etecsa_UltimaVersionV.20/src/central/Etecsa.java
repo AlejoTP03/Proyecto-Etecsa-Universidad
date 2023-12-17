@@ -8,11 +8,11 @@ package central;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import domain.Cliente;
-import domain.Cliente_Residenial;
+import domain.ClienteResidenial;
 import domain.Llamada;
-import domain.Llamada_Internacional;
-import domain.Llamada_Interprovincial;
-import domain.Llamada_Local;
+import domain.LlamadaInternacional;
+import domain.LlamadaInterprovincial;
+import domain.LlamadaLocal;
 import interfaces.ICentral;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +65,7 @@ public class Etecsa implements ICentral {
 
        
     @Override
-    public List<Llamada> listaLlamadasCliente(Cliente cliente, Cliente_Residenial clienteResidencial) {
+    public List<Llamada> listaLlamadasCliente(Cliente cliente, ClienteResidenial clienteResidencial) {
          List<Llamada> listaLlamadaACliente = new ArrayList<>();
             
             if(cliente.getEstadoContrato() == true && clienteResidencial.getRastreoLlamada() == true){
@@ -105,7 +105,7 @@ public class Etecsa implements ICentral {
     public List<Llamada> getLlamadasInternacionalesEInterprovinciales() {
         List<Llamada> listaLlamadaTeleSeleccion = new ArrayList<>();
         for(Llamada llamada : llamadas){
-            if(llamada instanceof Llamada_Internacional || llamada instanceof Llamada_Interprovincial)
+            if(llamada instanceof LlamadaInternacional || llamada instanceof LlamadaInterprovincial)
                 listaLlamadaTeleSeleccion = ((List<Llamada>) llamada);
         
         }
@@ -130,7 +130,7 @@ public class Etecsa implements ICentral {
     public List<Llamada> getLlamadasLocales() {
         List<Llamada> llamadasLocales = new ArrayList<>();
         for(Llamada llamadaLocal : llamadas){
-            if(llamadaLocal instanceof Llamada_Local){
+            if(llamadaLocal instanceof LlamadaLocal){
                llamadasLocales.add(llamadaLocal);
             }
         }

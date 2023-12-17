@@ -7,7 +7,7 @@
 package interfaces;
 
 import domain.Cliente;
-import domain.Cliente_Residenial;
+import domain.ClienteResidenial;
 import domain.Llamada;
 import java.util.List;
 
@@ -18,7 +18,7 @@ import java.util.List;
 public interface ICentral {
     public void cambiarEstadoContrato(Cliente cliente);
     public boolean addCliente(Cliente cliente);
-    public List<Llamada> listaLlamadasCliente(Cliente cliente, Cliente_Residenial clienteResidencial);
+    public List<Llamada> listaLlamadasCliente(Cliente cliente, ClienteResidenial clienteResidencial);
     public Cliente datosClienteMasUtilizaServicio();
     public double cantidadMinutosHabladosTeleSeleccion(String nombre);
     public double pagoPorSuperarMetrado();

@@ -16,9 +16,9 @@ import java.util.Date;
  *
  * @author PC
  */
-public class Llamada_Interprovincial extends Llamada {
+public class LlamadaInterprovincial extends Llamada {
 
-    public Llamada_Interprovincial(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+    public LlamadaInterprovincial(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
         super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
 

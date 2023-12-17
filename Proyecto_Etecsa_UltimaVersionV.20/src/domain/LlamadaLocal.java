@@ -6,26 +6,31 @@
 
 package domain;
 
-import domain.Cliente;
 import java.util.Date;
+
+
 
 /**
  *
  * @author PC
  */
-public class Llamada_Matutina extends Llamada {
+public class LlamadaLocal extends Llamada{
 
-    public Llamada_Matutina(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
+    public LlamadaLocal(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
         super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
 
-           
+        
     @Override
     public double precioLlamada() {
-        return 0;
+        double valorLlamada = 0.0;
+        if(numeroLlamado.equals("777777")){
+            valorLlamada = 1;
+        }else
+            valorLlamada = 0.05 / 3;
+        
+        return duracion * valorLlamada;
     }
-    
-    
     
     
     

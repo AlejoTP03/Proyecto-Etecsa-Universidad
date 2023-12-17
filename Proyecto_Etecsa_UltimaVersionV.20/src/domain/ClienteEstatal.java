@@ -12,12 +12,12 @@ import java.util.List;
  *
  * @author PC
  */
-public class Cliente_Estatal extends Cliente{
+public class ClienteEstatal extends Cliente{
     
     private boolean lineaArrendada;
     
     //Constructor
-    public Cliente_Estatal(boolean lineaArrendada, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato, List<Llamada> listaLlamada) {
+    public ClienteEstatal(boolean lineaArrendada, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato, List<Llamada> listaLlamada) {
         super(nombre, numeroCarnet, direccion, numeroAsignado, estadoContrato, listaLlamada);
         this.lineaArrendada = lineaArrendada;
     }
