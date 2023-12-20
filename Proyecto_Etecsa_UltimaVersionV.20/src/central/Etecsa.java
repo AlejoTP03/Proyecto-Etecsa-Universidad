@@ -16,19 +16,18 @@ import domain.LlamadaLocal;
 import interfaces.ICentral;
 import java.util.ArrayList;
 import java.util.List;
+
+
 /**
  *
  * @author PC
  */
 public class Etecsa implements ICentral {
 
-    private List<Cliente> clientes;
+    private List<Cliente> clientes = new ArrayList<>();
     private List<Llamada> llamadas = new ArrayList<>();
 
     public List<Cliente> getClientes() {
-        clientes = new ArrayList<>();
-        for(Cliente c: clientes)
-            clientes.add(c);
         return clientes;
     }
 
@@ -140,13 +139,14 @@ public class Etecsa implements ICentral {
 
     
     
+    
     @Override
     public double pagoPorSuperarMetrado() {
         List<Llamada> llamadasLocales = getLlamadasLocales();
+    
         double valorMetrado = 0.0;
-        
         for(Llamada llamadaLocal : llamadasLocales){
-            valorMetrado+=llamadaLocal.getDuracion();
+            valorMetrado+=llamadaLocal.getDuracionLlamda();
             
         }
         

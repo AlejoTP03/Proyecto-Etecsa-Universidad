@@ -7,6 +7,7 @@
 package domain;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -18,10 +19,11 @@ import java.util.Date;
  */
 public class LlamadaInterprovincial extends Llamada {
 
-    public LlamadaInterprovincial(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
+    public LlamadaInterprovincial(long duracionLlamda, String numeroLlamante, String numeroLlamado, Calendar fecha, int hora, Cliente cliente) {
+        super(duracionLlamda, numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
 
+    
     
     @Override
     public double precioLlamada() {
@@ -32,7 +34,7 @@ public class LlamadaInterprovincial extends Llamada {
         
         valorllamada = Math.abs(a-b);
         
-     return super.getDuracion() * valorllamada;   
+     return super.getDuracionLlamda() * valorllamada;   
     }
  
     

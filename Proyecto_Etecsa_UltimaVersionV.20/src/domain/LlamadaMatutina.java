@@ -7,6 +7,7 @@
 package domain;
 
 import domain.Cliente;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -15,9 +16,11 @@ import java.util.Date;
  */
 public class LlamadaMatutina extends Llamada {
 
-    public LlamadaMatutina(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
+    public LlamadaMatutina(long duracionLlamda, String numeroLlamante, String numeroLlamado, Calendar fecha, int hora, Cliente cliente) {
+        super(duracionLlamda, numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
+
+    
 
            
     @Override

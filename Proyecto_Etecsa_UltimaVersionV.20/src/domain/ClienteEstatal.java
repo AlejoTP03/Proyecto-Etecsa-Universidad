@@ -17,12 +17,12 @@ public class ClienteEstatal extends Cliente{
     private boolean lineaArrendada;
     
     //Constructor
-    public ClienteEstatal(boolean lineaArrendada, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato, List<Llamada> listaLlamada) {
-        super(nombre, numeroCarnet, direccion, numeroAsignado, estadoContrato, listaLlamada);
+    
+    public ClienteEstatal(boolean lineaArrendada, String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato) {
+        super(nombre, numeroCarnet, direccion, numeroAsignado, estadoContrato);
         this.lineaArrendada = lineaArrendada;
     }
-    
-    
+
         
     //Getter and Setter
     public boolean getLineaArrendada() {

@@ -7,6 +7,7 @@
 package domain;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -18,10 +19,12 @@ public class LlamadaInternacional extends Llamada{
     private double tarifaPais;
     
     //Constructor
-    public LlamadaInternacional(double tarifaPais, String numeroLlamante, long duracion, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
+    public LlamadaInternacional(double tarifaPais, long duracionLlamda, String numeroLlamante, String numeroLlamado, Calendar fecha, int hora, Cliente cliente) {
+        super(duracionLlamda, numeroLlamante, numeroLlamado, fecha, hora, cliente);
         this.tarifaPais = tarifaPais;
     }
+    
+    
     
     
     //Getter and Setter
@@ -37,9 +40,9 @@ public class LlamadaInternacional extends Llamada{
     @Override
     public double precioLlamada() {
         if(super.hora > 2300 && super.hora < 0500){
-            return duracion * tarifaPais;
+            return duracionLlamda * tarifaPais;
         }else
-            return duracion * (tarifaPais + 0.50);
+            return duracionLlamda * (tarifaPais + 0.50);
     }
     
     

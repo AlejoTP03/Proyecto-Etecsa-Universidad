@@ -7,8 +7,8 @@
 package domain;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.Calendar;
+
 
 
 
@@ -17,36 +17,34 @@ import java.util.Date;
  * @author PC
  */
 public abstract class Llamada {
-    protected long duracion;
+    protected long duracionLlamda;
     protected String numeroLlamante;
     protected String numeroLlamado;
-    protected Date fecha;
+    protected Calendar fecha;
     protected int hora;
     protected Cliente cliente;
-    
 
     //Constructor
-    public Llamada(long duracion,String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        this.duracion = duracion;
+    public Llamada(long duracionLlamda, String numeroLlamante, String numeroLlamado, Calendar fecha, int hora, Cliente cliente) {
+        this.duracionLlamda = duracionLlamda;
         this.numeroLlamante = numeroLlamante;
         this.numeroLlamado = numeroLlamado;
         this.fecha = fecha;
         this.hora = hora;
         this.cliente = cliente;
-    }
-
-        
+    }   
+    
     //Formato numero telefonico
     String[] numeroLlamanteSeparado = numeroLlamante.split("-");
     String[] numeroLlamadoSeparado = numeroLlamado.split("-"); 
     
     //Getter and Setter
-    public long getDuracion() {
-        return duracion;
+    public long getDuracionLlamda() {
+        return duracionLlamda;
     }
 
-    public void setDuracion(long duracion) {
-        this.duracion = duracion;
+    public void setDuracionLlamda(long duracionLlamda) {
+        this.duracionLlamda = duracionLlamda;
     }
 
     public String getNumeroLlamante() {
@@ -65,11 +63,11 @@ public abstract class Llamada {
         this.numeroLlamado = numeroLlamado;
     }
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(Calendar fecha) {
         this.fecha = fecha;
     }
 
@@ -88,7 +86,22 @@ public abstract class Llamada {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
+
+    public String[] getNumeroLlamanteSeparado() {
+        return numeroLlamanteSeparado;
+    }
+
+    public void setNumeroLlamanteSeparado(String[] numeroLlamanteSeparado) {
+        this.numeroLlamanteSeparado = numeroLlamanteSeparado;
+    }
+
+    public String[] getNumeroLlamadoSeparado() {
+        return numeroLlamadoSeparado;
+    }
+
+    public void setNumeroLlamadoSeparado(String[] numeroLlamadoSeparado) {
+        this.numeroLlamadoSeparado = numeroLlamadoSeparado;
+    }
     
     
     public abstract double precioLlamada();

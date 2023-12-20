@@ -6,6 +6,7 @@
 
 package domain;
 
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -16,10 +17,11 @@ import java.util.Date;
  */
 public class LlamadaLocal extends Llamada{
 
-    public LlamadaLocal(long duracion, String numeroLlamante, String numeroLlamado, Date fecha, int hora, Cliente cliente) {
-        super(duracion, numeroLlamante, numeroLlamado, fecha, hora, cliente);
+    public LlamadaLocal(long duracionLlamda, String numeroLlamante, String numeroLlamado, Calendar fecha, int hora, Cliente cliente) {
+        super(duracionLlamda, numeroLlamante, numeroLlamado, fecha, hora, cliente);
     }
 
+    
         
     @Override
     public double precioLlamada() {
@@ -29,7 +31,7 @@ public class LlamadaLocal extends Llamada{
         }else
             valorLlamada = 0.05 / 3;
         
-        return duracion * valorLlamada;
+        return duracionLlamda * valorLlamada;
     }
     
     

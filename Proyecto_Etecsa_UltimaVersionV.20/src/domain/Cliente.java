@@ -21,7 +21,7 @@ public abstract class Cliente {
     protected String numeroAsignado;
     protected boolean estadoContrato;
     
-    protected List<Llamada> listaLlamada;
+    protected List<Llamada> listaLlamada = new ArrayList<>();
     
     //Formato numero telefonico
 //    String[] numeroAsignadoSeparado = numeroAsignado.split("-");
@@ -29,15 +29,14 @@ public abstract class Cliente {
 
     //Contructor
     
-    public Cliente(String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato, List<Llamada> listaLlamada) {
+    public Cliente(String nombre, String numeroCarnet, String direccion, String numeroAsignado, boolean estadoContrato) {
         this.nombre = nombre;
         this.numeroCarnet = numeroCarnet;
         this.direccion = direccion;
         this.numeroAsignado = numeroAsignado;
         this.estadoContrato = true;
-        this.listaLlamada = listaLlamada;
     }
-        
+
        
     //Getter and Setter
     public String getNombre() {
@@ -88,9 +87,7 @@ public abstract class Cliente {
         this.listaLlamada = listaLlamada;
     }
     
-        
-    
-    public abstract double calcularPagoMensual();
+        public abstract double calcularPagoMensual();
     
     
    
